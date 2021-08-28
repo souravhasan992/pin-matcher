@@ -7,7 +7,25 @@ function generatePin(){
     else{
         console.log('3 degit came')
         return generatePin();
-        // document.getElementById('generated-pin').value = pin;
+        
     }
-    console.log(pin);
 }
+
+
+
+document.getElementById('key-pad').addEventListener('click',function(event){    
+    const newInput = event.target.innerText;
+    const inputField =document.getElementById('typed-pin');
+    if(isNaN(newInput)){
+        if(newInput == 'C'){
+            inputField.value = '';
+        }
+    }
+    else{
+        
+        const previousInput = inputField.value;
+        const newInputField = previousInput + newInput;
+        inputField.value = newInputField;
+    }
+    
+})
